@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration du Blog{% endblock %}
+
+{% block body %}
+    <h2>Administration du blog</h2>
+    <div>
+        <ul>
+            {% if categories|length > 0 %}
+                {% for category in categories %}
+                    <li>{{ category.name }}</li>
+                    <ul>
+                        {% for article in category.articles %}
+                            <li>{{ article.title }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            {% else %}
+                Il n'y a aucune catégorie
+            {% endif %}
+        </ul>
+        <a href="{{ path('admin_blog_category_add') }}">Ajouter une catégorie</a>
+        <a href="{{ path('admin_blog_article_add') }}">Ajouter un article</a>
+    </div>
+{% endblock %}

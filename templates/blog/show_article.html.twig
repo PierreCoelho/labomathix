@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }} {% endblock %}
+
+{% block body %}
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.content }}</p>
+    <p>{{ article.createdAt | format_datetime('full', 'short', locale='fr') }}</p>
+{% endblock %}

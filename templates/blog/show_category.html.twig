@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles de la categorie {{ category.name }} {% endblock %}
+
+{% block body %}
+    <h2>{{ category.name }}</h2>
+    {% if articles|length > 0 %}
+        <ul>
+            {% for article in articles %}
+                <li><a href="{{ path('blog_article', {'name': category.name,'slug': article.slug}) }}">{{ article.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        Il n'y a pas d'article à afficher dans la catégorie {{ category.name }}
+    {% endif %}
+{% endblock %}

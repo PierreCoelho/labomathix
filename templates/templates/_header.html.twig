@@ -1,0 +1,10 @@
+<header>
+    <h1><a href="{{ path('blog_home') }}">Labomathix</a></h1>
+    <nav>
+        <ul>
+            {% for category in categories %}
+                <li><a href="{{ path('blog_category', {'name': category.name}) }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>
